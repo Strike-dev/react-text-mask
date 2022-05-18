@@ -44,7 +44,7 @@ export interface MaskedInputProps extends React.InputHTMLAttributes<HTMLInputEle
 
     onBlur: (event: React.ChangeEvent<HTMLElement>) => void;
 
-    autofocus: boolean;
+    autoFocus: boolean;
 
     keepCharPositions?: boolean;
 
@@ -72,7 +72,7 @@ export interface ConformToMaskResult {
     };
 }
 
-export default class MaskedInput extends React.Component<MaskedInputProps, any> {
+export default class MaskedInput extends React.PureComponent<MaskedInputProps, any> {
     inputElement: HTMLElement;
 }
 
