@@ -3,7 +3,7 @@ const path = require( 'path' );
 
 module.exports = {
   // webpack optimization mode
-  mode: 'production',
+  mode: 'development',
   entry: [
     './src/reactTextMask.js',
   ],
@@ -13,7 +13,6 @@ module.exports = {
     path: path.resolve( __dirname, './dist' ),
     filename: 'index.js',
     library: 'reactTextMask',
-    // libraryTarget: 'umd'
   },
 
   // module/loaders configuration
