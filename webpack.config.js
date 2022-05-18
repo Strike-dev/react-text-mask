@@ -11,7 +11,7 @@ module.exports = {
   // output files and chunks
   output: {
     path: path.resolve( __dirname, './dist' ),
-    filename: 'reactTextMask.js',
+    filename: 'index.js',
     library: 'reactTextMask',
     // libraryTarget: 'umd'
   },
