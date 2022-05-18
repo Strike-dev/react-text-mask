@@ -23,11 +23,28 @@ export interface PipeConfig {
 export type ConformToMaskConfig = Partial<Omit<PipeConfig, 'rawValue'>>;
 
 export interface MaskedInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    
+    id: string;
+
+    className: string;
+
     mask: Mask | ((value: string) => Mask);
+
+    placeholder?: string;
+
+    type: 'text';
+
+    pattern: string;
+    
+    inputMode: 'decimal';
 
     guide?: boolean;
 
-    placeholderChar?: string;
+    onChange: (event: React.ChangeEvent<HTMLElement>) => void;
+
+    onBlur: (event: React.ChangeEvent<HTMLElement>) => void;
+
+    autofocus: boolean;
 
     keepCharPositions?: boolean;
 
