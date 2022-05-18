@@ -2,7 +2,7 @@
   "name": "react-text-mask",
   "version": "1.0.0",
   "description": "React Wrapper for text-mask",
-  "main": "reactTextMask.js",
+  "main": "dist/reactTextMask.js",
   "scripts": {
     "test": "test"
   },
