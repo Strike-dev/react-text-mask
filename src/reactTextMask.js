@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import createTextMaskInputElement
-  from './core/src/createTextMaskInputElement'
-import {isNil} from './core/src/utilities'
+import createTextMaskInputElement from '../core/src/createTextMaskInputElement'
+import { isNil } from '../core/src/utilities'
 
 export default class MaskedInput extends React.PureComponent {
   constructor(...args) {
@@ -119,7 +118,7 @@ MaskedInput.propTypes = {
 }
 
 MaskedInput.defaultProps = {
-  render: (ref, props) => <input ref={ref} {...props} />
+  render: (ref, props) => { <input ref={ref} {...props} /> }
 }
 
-export {default as conformToMask} from './core/src/conformToMask.js'
+export { default as conformToMask } from '../core/src/conformToMask.js'
