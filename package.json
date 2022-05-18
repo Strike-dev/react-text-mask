@@ -2,7 +2,7 @@
   "name": "react-text-mask",
   "version": "1.0.0",
   "description": "React Wrapper for text-mask",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "npm run loud-lint && npm run core:test && npm run react:test && npm run vanilla:test && npm run vue:test && npm run addons:test",
     "build": "npm run core:build && npm run react:build && npm run vanilla:build && npm run vue:build && npm run website:build && npm run addons:build",
