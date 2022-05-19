@@ -121,11 +121,7 @@ MaskedInput.propTypes = {
 }
 
 MaskedInput.defaultProps = {
-  render: (ref, props) => {
-    return(
-      <input ref={ref} {...props} /> 
-    );
-  }
+  render: (ref, props) => { <input ref={ref} {...props} /> }
 }
 
 export { default as conformToMask } from '../core/src/conformToMask.js'
