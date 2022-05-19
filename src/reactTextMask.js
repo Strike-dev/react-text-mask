@@ -5,6 +5,7 @@ import { isNil } from '../core/src/utilities'
 
 export default class MaskedInput extends React.PureComponent {
   constructor(...args) {
+    console.log('HERE 0');
     super(...args)
 
     this.setRef = this.setRef.bind(this)
@@ -27,6 +28,7 @@ export default class MaskedInput extends React.PureComponent {
   }
 
   componentDidMount() {
+    console.log('HERE 1');
     this.initTextMask()
   }
 
@@ -58,6 +60,7 @@ export default class MaskedInput extends React.PureComponent {
   }
 
   render() {
+    console.log('HERE 2');
     const {render, ...props} = this.props
 
     delete props.mask
