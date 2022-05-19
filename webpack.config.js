@@ -12,7 +12,9 @@ module.exports = {
     path: path.resolve( __dirname, './dist' ),
     filename: 'index.js',
     library: 'reactTextMask',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    umdNamedDefine: true
   },
 
   // module/loaders configuration

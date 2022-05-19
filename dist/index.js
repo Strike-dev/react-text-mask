@@ -10,12 +10,12 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react"], factory);
+		define("reactTextMask", ["react"], factory);
 	else if(typeof exports === 'object')
 		exports["reactTextMask"] = factory(require("react"));
 	else
 		root["reactTextMask"] = factory(root["React"]);
-})(self, (__WEBPACK_EXTERNAL_MODULE_react__) => {
+})(this, (__WEBPACK_EXTERNAL_MODULE_react__) => {
 return /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
