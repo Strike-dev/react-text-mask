@@ -1,0 +1,43 @@
+{
+  "parser": "@babel/eslint-parser",
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+  ],
+  "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+  },
+  "plugins": [
+      "react"
+  ],
+  "rules": {
+      "no-console": "off",
+      "no-dupe-keys": "off",
+      "no-empty": "off",
+      "no-extra-boolean-cast": "off",
+      "no-extra-semi": "off",
+      "no-prototype-builtins": "off",
+      "no-redeclare": "off",
+      "no-undef": "off",
+      "no-unused-vars": "off",
+      "react/prop-types": "off",
+      "react/display-name": "off",
+      "react/jsx-key": "off",
+      "react/jsx-no-duplicate-props": "off",
+      "react/jsx-no-target-blank": "off",
+      "react/no-unescaped-entities": "off"
+  },
+  "settings": {
+      "react": {
+          "version": "detect"
+      }
+  }
+}

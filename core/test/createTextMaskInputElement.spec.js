@@ -1,4 +1,4 @@
-require('babel-core/register')({plugins: ['babel-plugin-rewire']})
+require('@babel/register')({plugins: ['babel-plugin-rewire']})
 
 import packageJson from '../package.json'
 import conformToMask from '../src/conformToMask'
