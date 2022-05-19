@@ -12,6 +12,7 @@ module.exports = {
     path: path.resolve( __dirname, './dist' ),
     filename: 'index.js',
     library: 'reactTextMask',
+    libraryTarget: 'commonjs2',
   },
 
   // module/loaders configuration
