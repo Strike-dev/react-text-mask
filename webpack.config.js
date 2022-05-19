@@ -12,7 +12,7 @@ module.exports = {
     path: path.resolve( __dirname, './dist' ),
     filename: 'index.js',
     library: 'reactTextMask',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'umd'
   },
 
   // module/loaders configuration
@@ -20,8 +20,15 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        use: 'babel-loader',
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react']
+            }
+          }
+        ]
       }
     ]
   },
@@ -34,5 +41,16 @@ module.exports = {
   
   performance: {
     hints: false
-  }
+  },
+
+  externals: [
+    {
+      'react': {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      }
+    }
+  ]
 };
