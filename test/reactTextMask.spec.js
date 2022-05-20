@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactTestUtils from 'react-addons-test-utils'
-import packageJson from '../package.json'
+import ReactTestUtils from 'react-dom/test-utils';
+import packageJson from '../package.json';
 
 const ReactTextMask = (isVerify()) ?
   require(`../${packageJson.main}`) :

@@ -1,38 +1,32 @@
-import React from 'react'
+import React, { createRef } from 'react'
 import PropTypes from 'prop-types'
 import createTextMaskInputElement from '../core/src/createTextMaskInputElement'
 import { isNil } from '../core/src/utilities'
 
 export default class MaskedInput extends React.PureComponent {
   constructor(...args) {
-    console.log('HERE 0');
     super(...args)
 
-    this.setRef = this.setRef.bind(this)
+    this.inputRef = createRef();
     this.onBlur = this.onBlur.bind(this)
     this.onChange = this.onChange.bind(this)
-  }
-
-  setRef(inputElement) {
-    this.inputElement = inputElement
   }
 
   initTextMask() {
     const {props, props: {value}} = this
 
     this.textMaskInputElement = createTextMaskInputElement({
-      inputElement: this.inputElement,
+      inputElement: this.inputRef.current,
       ...props,
     })
     this.textMaskInputElement.update(value)
   }
 
   componentDidMount() {
-    console.log('HERE 1');
     this.initTextMask()
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState, snapshot) {
     // Getting props affecting value
     const {value, pipe, mask, guide, placeholderChar, showMask} = this.props
 
@@ -51,33 +45,37 @@ export default class MaskedInput extends React.PureComponent {
         isPipeChanged
 
     // Сalculate that value was changed
-    const isValueChanged = value !== this.inputElement.value
-
-    // Check value and settings to prevent duplicating update() call
-    if (isValueChanged || isSettingChanged) {
+    const isValueChanged = value !== snapshot.value
+    // Re-init mask only if settings changed, and update if only value changed
+    if (isSettingChanged) {
       this.initTextMask()
+    } else if (isValueChanged) {
+      this.textMaskInputElement.update(value)
     }
   }
 
+  getSnapshotBeforeUpdate() {
+    return {value: this.inputRef.current.value}
+  }
+
   render() {
-    console.log('HERE 2');
-    const {render, ...props} = this.props
+    const {render, ...props} = this.props;
 
-    delete props.mask
-    delete props.guide
-    delete props.pipe
-    delete props.placeholderChar
-    delete props.keepCharPositions
-    delete props.value
-    delete props.onBlur
-    delete props.onChange
-    delete props.showMask
+    delete props.mask;
+    delete props.guide;
+    delete props.pipe;
+    delete props.placeholderChar;
+    delete props.keepCharPositions;
+    delete props.value;
+    delete props.onBlur;
+    delete props.onChange;
+    delete props.showMask;
 
-    return render(this.setRef, {
+    return render(this.inputRef, {
       onBlur: this.onBlur,
       onChange: this.onChange,
       defaultValue: this.props.value,
-      ...props,
+      ...props
     })
   }
 
@@ -121,7 +119,11 @@ MaskedInput.propTypes = {
 }
 
 MaskedInput.defaultProps = {
-  render: (ref, props) => { <input ref={ref} {...props} /> }
+  render: (ref, props) => {
+    return (
+      <input ref={ref} {...props} />
+    )
+  }
 }
 
 export { default as conformToMask } from '../core/src/conformToMask.js'
